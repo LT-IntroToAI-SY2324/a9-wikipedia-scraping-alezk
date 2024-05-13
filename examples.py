@@ -9,95 +9,95 @@ import re
 # [] set of char
 # {} a number of instances
 
-# string = "called piiig"
-# pat = re.compile("iig")
-# result = pat.search(string)
-# print(result)
+string = "called piiig"
+pat = re.compile("iig")
+result = pat.search(string)
+print(result)
+print(result.group())
+
+string = "called piiig"
+pat = re.compile("xiig")
+result = pat.search(string)
+print(result)
+
+pat = re.compile("called")
+result = pat.match(string)
+print(result)
+
+pat = re.compile("ig")
+result = pat.search(string)
+print(result.group())
+
+pat = re.compile("...ed")
+result = pat.search(string)
+print(result.group())
+
+pat = re.compile("x...g")
+result = pat.search(string)
 # print(result.group())
 
-# string = "called piiig"
-# pat = re.compile("xiig")
-# result = pat.search(string)
-# print(result)
+string = "called piiig much better: xyzg"
+pat = re.compile("...g")
+result = pat.search(string)
+print(result.group())
 
-# pat = re.compile("called")
-# result = pat.match(string)
-# print(result)
+pat = re.compile("...g")
+result = pat.findall(string)
+print(result)
 
-# pat = re.compile("ig")
-# result = pat.search(string)
-# print(result.group())
+string = "c.lled piiig much better: xyzg"
+pat = re.compile("...g")
+result = pat.findall(string)
+print(result)
 
-# pat = re.compile("...ed")
-# result = pat.search(string)
-# print(result.group())
+pat = re.compile("c\.l")
+result = pat.search(string)
+print(result.group())
 
-# pat = re.compile("x...g")
-# result = pat.search(string)
-# # print(result.group())
+string = 'blah :cat blah blah'
+pat = re.compile(":\w\w\w")
+result = pat.search(string)
+print(result.group())
 
-# string = "called piiig much better: xyzg"
-# pat = re.compile("...g")
-# result = pat.search(string)
-# print(result.group())
+string = "blah :catxxx blah blah bah"
+pat = re.compile(":\w\w\w")
+result = pat.search(string)
+print(result.group())
 
-# pat = re.compile("...g")
-# result = pat.findall(string)
-# print(result)
+string = "blah :123 blah blah bah"
+pat = re.compile(":\d\d\d")
+result = pat.search(string)
+print(result.group())
 
-# string = "c.lled piiig much better: xyzg"
-# pat = re.compile("...g")
-# result = pat.findall(string)
-# print(result)
+string = "1 2 3"
+pat = re.compile("\d\s\d\s\d")
+result = pat.search(string)
+print(result.group())
 
-# pat = re.compile("c\.l")
-# result = pat.search(string)
-# print(result.group())
+string = "1       2       3      "
+pat = re.compile("\d\s+\d\s+\d")
+result = pat.search(string)
+print(result.group())
 
-# string = 'blah :cat blah blah'
-# pat = re.compile(":\w\w\w")
-# result = pat.search(string)
-# print(result.group())
+string = "blah blah :lanetech blah blah"
+pat = re.compile(":\w+")
+result = pat.search(string)
+print(result.group())
 
-# string = "blah :catxxx blah blah bah"
-# pat = re.compile(":\w\w\w")
-# result = pat.search(string)
-# print(result.group())
+string = "blah blah :lanetech123 blah blah"
+pat = re.compile(":\w+")
+result = pat.search(string)
+print(result.group())
 
-# string = "blah :123 blah blah bah"
-# pat = re.compile(":\d\d\d")
-# result = pat.search(string)
-# print(result.group())
+string = "blah blah :lanetech123& blah blah"
+pat = re.compile(":\w+")
+result = pat.search(string)
+print(result.group())
 
-# string = "1 2 3"
-# pat = re.compile("\d\s\d\s\d")
-# result = pat.search(string)
-# print(result.group())
-
-# string = "1       2       3      "
-# pat = re.compile("\d\s+\d\s+\d")
-# result = pat.search(string)
-# print(result.group())
-
-# string = "blah blah :lanetech blah blah"
-# pat = re.compile(":\w+")
-# result = pat.search(string)
-# print(result.group())
-
-# string = "blah blah :lanetech123 blah blah"
-# pat = re.compile(":\w+")
-# result = pat.search(string)
-# print(result.group())
-
-# string = "blah blah :lanetech123& blah blah"
-# pat = re.compile(":\w+")
-# result = pat.search(string)
-# print(result.group())
-
-# string = "blah blah :lanetech123& blah blah"
-# pat = re.compile(":\S+")
-# result = pat.search(string)
-# print(result.group())
+string = "blah blah :lanetech123& blah blah"
+pat = re.compile(":\S+")
+result = pat.search(string)
+print(result.group())
 
 string = "blah balh blah robert.berg@cps.edu blah blah blah"
 pat = re.compile("\w+@\w+")
