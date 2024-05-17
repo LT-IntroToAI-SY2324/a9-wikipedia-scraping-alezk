@@ -20,7 +20,7 @@ def get_planet_radius(planet_name: str) -> str:
     """
     infobox_text = clean_text(get_first_infobox_text(get_page_html(planet_name)))
     # TODO: fill this in
-    pattern = "REPLACE ME"
+    pattern = "radius(?P<radius>[\d+.]+)"
     error_text = "Page infobox has no polar radius information"
     match = get_match(infobox_text, pattern, error_text)
     return match.group("radius")
@@ -36,8 +36,8 @@ def get_birth_date(name: str) -> str:
         birth date of the given person
     """
     infobox_text = clean_text(get_first_infobox_text(get_page_html(name)))
-    # TODO: fill this in
-    pattern = "REPLACE ME"
+    print(infobox_text)
+    pattern = "(P?<birth>)\w+ "
     error_text = (
         "Page infobox has no birth information (at least none in xxxx-xx-xx format)"
     )
@@ -46,15 +46,15 @@ def get_birth_date(name: str) -> str:
 
 
 if __name__ == "__main__":
-    print("\n<<<<<<<<<<<<<< Testing Planet Radius >>>>>>>>>>>>>>")
+    # print("\n<<<<<<<<<<<<<< Testing Planet Radius >>>>>>>>>>>>>>")
     # should be 3,376.2
-    print(f'Mars has a polar radius of {get_planet_radius("Mars")}km')
+    # print(f'Mars has a polar radius of {get_planet_radius("Mars")}km')
     # should be 6356.752
-    print(f'Earth has a polar radius of {get_planet_radius("Earth")}km')
+    # print(f'Earth has a polar radius of {get_planet_radius("Earth")}km')
     # should be 66,854
-    print(f'Jupiter has a polar radius of {get_planet_radius("Jupiter")}km')
+    # print(f'Jupiter has a polar radius of {get_planet_radius("Jupiter")}km')
     # should be 54,364
-    print(f'Saturn has a polar radius of {get_planet_radius("Saturn")}km')
+    # print(f'Saturn has a polar radius of {get_planet_radius("Saturn")}km')
 
     # uncomment below lines for tests once you think you're getting the right output
     # print('\n<<<< Running asserts, this might take a sec >>>>')
